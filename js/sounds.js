@@ -37,8 +37,11 @@ function activeSound(card, sound) {
   }
 }
 
-function stopSound(sound) {
-  sound.pause()
+function stopSound(soundOne, soundtwo, soundTree, soundFour) {
+  soundOne.pause()
+  soundtwo.pause()
+  soundTree.pause()
+  soundFour.pause()
 }
 
 function volumeInput(sound, volume) {

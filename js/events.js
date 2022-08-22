@@ -9,10 +9,6 @@ import {
   cardRain,
   cardCofeeShop,
   cardFireplace,
-  buttonFlorest,
-  buttonRain,
-  buttonCofeeShop,
-  buttonFireplace,
   inputFlorest,
   inputRain,
   inputCofeeShop,
@@ -32,7 +28,27 @@ import {
   playSound
 } from "./sounds.js"
 
-export default function ({ timer, themes}) {
+export default function ({ timer, themes }) {
+
+  buttonTemeLightMode.addEventListener('click', function () {
+    themes.toggleTeme()
+    playSound(buttonPressAudio)
+    playSound(bgAudio)
+    stopSound(soundFlorest, soundRain, soundFirePlace,soundCofeeShop)
+    themes.removeActiveCollorsCards(cardFlorest, cardCofeeShop, cardFireplace)
+    themes.removeActiveCollorsCards(cardFlorest, cardCofeeShop, cardRain)
+    
+  })
+
+  buttonTemeDarkMode.addEventListener('click', function () {
+    themes.toggleTeme()
+    playSound(buttonPressAudio)
+    playSound(bgAudio)
+    stopSound(soundFlorest, soundRain, soundFirePlace,soundCofeeShop)
+    themes.removeActiveCollorsCards(cardFlorest, cardCofeeShop, cardFireplace)
+    themes.removeActiveCollorsCards(cardFlorest, cardCofeeShop, cardRain)
+  })
+
   inputFlorest.addEventListener("input", function () {
     volumeInput(soundFlorest, inputFlorest)
   })
@@ -49,26 +65,7 @@ export default function ({ timer, themes}) {
     volumeInput(soundFirePlace, inputFirePlace)
   })
 
-  buttonTemeLightMode.addEventListener('click', function () {
-    themes.toggleTeme()
-    playSound(buttonPressAudio)
-    playSound(bgAudio)
-    stopSound(soundFlorest)
-    stopSound(soundRain)
-    stopSound(soundFirePlace)
-    stopSound(soundCofeeShop)
-  })
-
-  buttonTemeDarkMode.addEventListener('click', function () {
-    themes.toggleTeme()
-    playSound(buttonPressAudio)
-    playSound(bgAudio)
-    stopSound(soundFlorest)
-    stopSound(soundRain)
-    stopSound(soundFirePlace)
-    stopSound(soundCofeeShop)
-  })
-
+  
   buttonPlay.addEventListener('click', function () {
     timer.upDateDisplay()
   })
@@ -86,55 +83,34 @@ export default function ({ timer, themes}) {
   })
 
   cardFlorest.addEventListener('click', function () {
-    themes.toggleCollorsCards(cardFlorest, buttonFlorest, inputFlorest)
-    themes.removeActiveCollorsCards(cardRain, buttonRain, inputRain)
-    themes.removeActiveCollorsCards(cardCofeeShop, buttonCofeeShop, inputCofeeShop)
-    themes.removeActiveCollorsCards(cardFireplace, buttonFireplace, inputFirePlace)
+    themes.toggleCollorsCards(cardFlorest)
+    themes.removeActiveCollorsCards(cardRain, cardCofeeShop, cardFireplace)
 
     activeSound(cardFlorest, soundFlorest)
-    stopSound(bgAudio)
-    stopSound(soundRain)
-    stopSound(soundCofeeShop)
-    stopSound(soundFirePlace)
+    stopSound(bgAudio, soundRain,soundCofeeShop, soundFirePlace)
   })
 
   cardRain.addEventListener('click', function () {
-    themes.toggleCollorsCards(cardRain, buttonRain, inputRain)
-    themes.removeActiveCollorsCards(cardFlorest, buttonFlorest, inputFlorest)
-    themes.removeActiveCollorsCards(cardCofeeShop, buttonCofeeShop, inputCofeeShop)
-    themes.removeActiveCollorsCards(cardFireplace, buttonFireplace, inputFirePlace)
+    themes.toggleCollorsCards(cardRain)
+    themes.removeActiveCollorsCards(cardFlorest, cardCofeeShop, cardFireplace)
 
     activeSound(cardRain, soundRain)
-    stopSound(bgAudio)
-    stopSound(soundFlorest)
-    stopSound(soundCofeeShop)
-    stopSound(soundFirePlace)
+    stopSound(bgAudio,soundFlorest,soundCofeeShop,soundFirePlace)
   })
 
   cardCofeeShop.addEventListener('click', function () {
-    themes.toggleCollorsCards(cardCofeeShop, buttonCofeeShop, inputCofeeShop)
-    themes.removeActiveCollorsCards(cardFlorest, buttonFlorest, inputFlorest)
-    themes.removeActiveCollorsCards(cardRain, buttonRain, inputRain)
-    themes.removeActiveCollorsCards(cardFireplace, buttonFireplace, inputFirePlace)
+    themes.toggleCollorsCards(cardCofeeShop)
+    themes.removeActiveCollorsCards(cardFlorest, cardRain, cardFireplace)
 
     activeSound(cardCofeeShop, soundCofeeShop)
-    stopSound(bgAudio)
-    stopSound(soundFlorest)
-    stopSound(soundRain)
-    stopSound(soundFirePlace)
+    stopSound(bgAudio, soundFlorest, soundRain,soundFirePlace)
   })
 
   cardFireplace.addEventListener('click', function () {
-    themes.toggleCollorsCards(cardFireplace, buttonFireplace, inputFirePlace)
-    themes.removeActiveCollorsCards(cardFlorest, buttonFlorest, inputFlorest)
-    themes.removeActiveCollorsCards(cardRain, buttonRain, inputRain)
-    themes.removeActiveCollorsCards(cardCofeeShop, buttonCofeeShop, inputCofeeShop)
+    themes.toggleCollorsCards(cardFireplace)
+    themes.removeActiveCollorsCards(cardFlorest, cardRain, cardCofeeShop)
 
     activeSound(cardFireplace, soundFirePlace)
-    stopSound(bgAudio)
-    stopSound(soundFlorest)
-    stopSound(soundRain)
-    stopSound(soundCofeeShop)
+    stopSound(bgAudio,soundFlorest,soundRain,soundCofeeShop)
   })
-
 }

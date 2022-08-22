@@ -1,3 +1,5 @@
+import { buttonPlay } from "./variables.js"
+
 export default function ({
   minutesDisplay,
   secondsDisplay,
@@ -12,9 +14,9 @@ export default function ({
 
 
   function upDateDisplay() {
+    buttonPlay.disabled = true
     minutes = Number(minutesDisplay.textContent)
     seconds = Number(secondsDisplay.textContent)
-
     if (minutes != 0) {
       timeOut = setTimeout(function () {
         if (seconds == 0) {
@@ -25,15 +27,15 @@ export default function ({
 
         startDisplay(minutes, (seconds - 1))
         --seconds
-        console.log(seconds)
 
         if (minutes == 0 && seconds == 0) {
           resetTimer()
           return
         }
-
         upDateDisplay()
+
       }, 1000)
+
     }
   }
 
@@ -50,6 +52,7 @@ export default function ({
 
   function stopTimer() {
     clearTimeout(timeOut)
+    buttonPlay.disabled = false
   }
 
   function addTimer() {

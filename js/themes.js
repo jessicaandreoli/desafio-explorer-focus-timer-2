@@ -16,24 +16,21 @@ export default function ({
     body.classList.toggle('lightMode')
   }
 
-  function toggleCollorsCards(card, button, input) {
+  function toggleCollorsCards(card) {
     card.classList.toggle('active')
-    button.classList.toggle('active')
-    input.classList.toggle('active')
   }
 
-  function removeActiveCollorsCards(card, button, input){
-    card.classList.remove('active')
-    button.classList.remove('active')
-    input.classList.remove('active')
+  function removeActiveCollorsCards(cardOne, cardTwo, cardTree){
+    cardOne.classList.remove('active')
+    cardTwo.classList.remove('active')
+    cardTree.classList.remove('active')
   }
-
 
   return {
     startAplication,
     toggleTeme,
     toggleCollorsCards,
-    removeActiveCollorsCards
+    removeActiveCollorsCards,
   }
 }
 
