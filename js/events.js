@@ -13,6 +13,10 @@ import {
   inputRain,
   inputCofeeShop,
   inputFirePlace,
+  buttonFlorest,
+  buttonRain,
+  buttonCofeeShop,
+  buttonFireplace,
 } from "./variables.js"
 
 import {
@@ -82,7 +86,7 @@ export default function ({ timer, themes }) {
     timer.reduceTimer()
   })
 
-  cardFlorest.addEventListener('click', function () {
+  buttonFlorest.addEventListener('click', function () {
     themes.toggleCollorsCards(cardFlorest)
     themes.removeActiveCollorsCards(cardRain, cardCofeeShop, cardFireplace)
 
@@ -90,7 +94,7 @@ export default function ({ timer, themes }) {
     stopSound(bgAudio, soundRain,soundCofeeShop, soundFirePlace)
   })
 
-  cardRain.addEventListener('click', function () {
+  buttonRain.addEventListener('click', function () {
     themes.toggleCollorsCards(cardRain)
     themes.removeActiveCollorsCards(cardFlorest, cardCofeeShop, cardFireplace)
 
@@ -98,7 +102,7 @@ export default function ({ timer, themes }) {
     stopSound(bgAudio,soundFlorest,soundCofeeShop,soundFirePlace)
   })
 
-  cardCofeeShop.addEventListener('click', function () {
+  buttonCofeeShop.addEventListener('click', function () {
     themes.toggleCollorsCards(cardCofeeShop)
     themes.removeActiveCollorsCards(cardFlorest, cardRain, cardFireplace)
 
@@ -106,7 +110,7 @@ export default function ({ timer, themes }) {
     stopSound(bgAudio, soundFlorest, soundRain,soundFirePlace)
   })
 
-  cardFireplace.addEventListener('click', function () {
+  buttonFireplace.addEventListener('click', function () {
     themes.toggleCollorsCards(cardFireplace)
     themes.removeActiveCollorsCards(cardFlorest, cardRain, cardCofeeShop)
 
