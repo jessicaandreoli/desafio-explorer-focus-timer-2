@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+.lightMode {
+  --bgr-color: hsla(0, 0%, 100%, 1);
+  --fontTime-color: hsla(240, 6%, 21%, 1);
+  --bg-cardButton-colors: hsl(240, 9%, 89%);
+  --svg-pathButton-colors: hsl(240, 6%, 21%); 
+  --bg-cardButtonActive-colors: hsl(194, 97%, 31%);
+  --svg-pathButtonActive-colors: hsl(0, 0%, 100%); 
+}
+
+.darkMode {
+  --bgr-color: hsl(240, 5%, 7%);
+  --fontTime-color: hsl(0, 0%, 100%); 
+  --bg-cardButton-colors: hsl(240, 6%, 17%);
+  --svg-pathButton-colors: hsl(240, 7%, 78%);
+  --bg-cardButtonActive-colors: hsl(195, 74%, 15%);
+  --svg-pathButtonActive-colors: hsl(0, 0%, 100%); 
+}
+
+.hide {
+  display: none;
+}
+
+body {
+  font-size: 1.6rem;
+  display: grid;
+  height: 80vh;
+  background: var(--bgr-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  height: 8rem;
+}
+
+header button{
+  position: absolute;
+  right: 0;
+  margin: 5rem;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 19.2rem;
+}
+
+.time {
+  display: flex;
+  font-size: 12.6rem;
+  font-weight: 500;
+  line-height: 14.8rem;
+  margin-bottom: 4.8rem;
+  color: var(--fontTime-color);
+}
+
+.buttons {
+  display: flex;
+  gap: 4rem;
+}
+
+.buttons button svg path {
+  fill: var(--svg-pathButton-colors)
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  border-radius: 2.4rem;
+}
+
+button:active {
+  transform: scale(1.02);
+}
+
+button:hover {
+  cursor:pointer;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+  position: relative;
+}
+
+.cards .card {
+  position: relative;
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2rem;
+  background: var(--bg-cardButton-colors);
+}
+
+.cards .card.active {
+  background: var(--bg-cardButtonActive-colors);
+  
+}
+
+.cardButton svg path {
+  fill: var(--svg-pathButton-colors);
+}
+
+.cardButton.active svg path{
+  fill: var(--svg-pathButtonActive-colors);
+}
+
+
+input{
+  appearance: none;
+  position: absolute;
+  bottom: 3rem;
+  width: 10rem;
+  height: 0.5rem;
+  border-radius: 5rem;
+  left: 2rem;
+  background: var(--fontTime-color);
+}
+
+input::-webkit-slider-thumb {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 5rem;
+  background: var(--fontTime-color);;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input.active {
+  background: var(--svg-pathButtonActive-colors);
+}
+
+input.active::-webkit-slider-thumb {
+  background: var(--svg-pathButtonActive-colors);
+}
+
+@media (max-width: 900px) {
+  main {
+    display: grid;
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 300px) {
+  main {
+    padding: 2rem;
+  }
+}
+
+
+
+
+
