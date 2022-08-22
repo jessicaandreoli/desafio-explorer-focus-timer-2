@@ -33,7 +33,7 @@ export default function ({
         }
 
         upDateDisplay()
-      }, 500)
+      }, 1000)
     }
   }
 
