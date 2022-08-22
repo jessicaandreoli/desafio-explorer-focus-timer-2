@@ -64,15 +64,6 @@ main {
   color: var(--fontTime-color);
 }
 
-.buttons {
-  display: flex;
-  gap: 4rem;
-}
-
-.buttons button svg path {
-  fill: var(--svg-pathButton-colors)
-}
-
 button {
   background-color: transparent;
   border: none;
@@ -87,6 +78,14 @@ button:hover {
   cursor:pointer;
 }
 
+.buttons{
+  display: flex;
+  gap: 4rem;
+}
+
+.buttons path {
+  fill: var(--svg-pathButton-colors)
+}
 
 .cards {
   display: grid;
@@ -105,19 +104,17 @@ button:hover {
 
 .cards .card.active {
   background: var(--bg-cardButtonActive-colors);
-  
-}
+} 
 
-.cardButton svg path {
+.cards .card svg path {
   fill: var(--svg-pathButton-colors);
 }
 
-.cardButton.active svg path{
+.cards .card.active svg path{
   fill: var(--svg-pathButtonActive-colors);
 }
 
-
-input{
+.cards .card input{
   appearance: none;
   position: absolute;
   bottom: 3rem;
@@ -128,7 +125,7 @@ input{
   background: var(--fontTime-color);
 }
 
-input::-webkit-slider-thumb {
+.cards .card input::-webkit-slider-thumb {
   height: 2rem;
   width: 2rem;
   border-radius: 5rem;
@@ -137,11 +134,11 @@ input::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-input.active {
+.cards .card.active input{
   background: var(--svg-pathButtonActive-colors);
 }
 
-input.active::-webkit-slider-thumb {
+.cards .card.active input::-webkit-slider-thumb {
   background: var(--svg-pathButtonActive-colors);
 }
 
