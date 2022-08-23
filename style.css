@@ -106,6 +106,12 @@ button:hover {
   background: var(--bg-cardButtonActive-colors);
 } 
 
+.cards .card .cardButton {
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2rem;
+}
+
 .cards .card svg path {
   fill: var(--svg-pathButton-colors);
 }

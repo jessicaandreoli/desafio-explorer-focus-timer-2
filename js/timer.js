@@ -1,10 +1,10 @@
+import { playSound } from "./sounds.js"
 import { buttonPlay } from "./variables.js"
 
 export default function ({
   minutesDisplay,
   secondsDisplay,
   kitchenTimer,
-  activeSound,
 }) {
   let newMinutes = Number(minutesDisplay.textContent)
   let newSeconds = Number(secondsDisplay.textContent)
@@ -17,26 +17,27 @@ export default function ({
     buttonPlay.disabled = true
     minutes = Number(minutesDisplay.textContent)
     seconds = Number(secondsDisplay.textContent)
-    if (minutes != 0) {
-      timeOut = setTimeout(function () {
-        if (seconds == 0) {
-          seconds = 60
-          --minutes
-          startDisplay(minutes, seconds)
-        }
 
-        startDisplay(minutes, (seconds - 1))
-        --seconds
+    timeOut = setTimeout(function () {
 
-        if (minutes == 0 && seconds == 0) {
-          resetTimer()
-          return
-        }
-        upDateDisplay()
+      if (seconds == 0) {
+        seconds = 60
+        --minutes
+      }
 
-      }, 1000)
+      startDisplay(minutes, String(seconds - 1))
+      --seconds
 
-    }
+      if (minutes == 0 && seconds == 0) {
+        resetTimer()
+        return
+      }
+
+      upDateDisplay()
+
+    }, 100)
+
+
   }
 
   function startDisplay(minutes, seconds) {
@@ -46,7 +47,7 @@ export default function ({
 
   function resetTimer() {
     clearTimeout(timeOut)
-    activeSound(kitchenTimer)
+    playSound(kitchenTimer)
     startDisplay(newMinutes, newSeconds)
   }
 
@@ -67,7 +68,7 @@ export default function ({
     minutes = Number(minutesDisplay.textContent)
     seconds = Number(secondsDisplay.textContent)
     console.log(minutes)
-    if (minutes > 0) {
+    if (minutes > 5) {
       startDisplay((minutes - 5), seconds)
     }
   }
