@@ -9,7 +9,7 @@ export {
   stopSound,
   bgAudio,
   volumeInput,
-  playSound
+  playSound,
 }
 
 
