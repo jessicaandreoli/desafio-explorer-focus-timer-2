@@ -35,7 +35,7 @@ export default function ({
 
       upDateDisplay()
 
-    }, 100)
+    }, 1000)
 
 
   }
